@@ -42,7 +42,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     
     func getCurrentTimelineEntry(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimelineEntry?) -> Void) {
         
-        handler(CLKComplicationTimelineEntry(date: Date(), complicationTemplate: CLKComplicationTemplateGraphicRectangularFullView(StatusView())))
+        handler(CLKComplicationTimelineEntry(date: Date(), complicationTemplate: CLKComplicationTemplateGraphicRectangularFullView(ComplicationView())))
     }
     
     
@@ -51,7 +51,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         
         let intoTheFuture = (1..<limit).map({ date.addingTimeInterval(TimeInterval($0).minutes) })
         let entries = intoTheFuture.map( { date -> CLKComplicationTimelineEntry in
-                            CLKComplicationTimelineEntry(date: date, complicationTemplate: CLKComplicationTemplateGraphicRectangularFullView(StatusView(referenceDate: date)))
+                            CLKComplicationTimelineEntry(date: date, complicationTemplate: CLKComplicationTemplateGraphicRectangularFullView(ComplicationView(referenceDate: date)))
             }
         )
         
@@ -63,45 +63,22 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     
     func getLocalizableSampleTemplate(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTemplate?) -> Void) {
         // This method will be called once per supported complication, and the results will be cached
-        handler(CLKComplicationTemplateGraphicRectangularFullView(StatusView()))
+        handler(CLKComplicationTemplateGraphicRectangularFullView(ComplicationView()))
     }
-    
-
 
 }
 
-extension TimeInterval {
-    var minutes: TimeInterval {
-        return self * 60
-    }
-    
-    var hours: TimeInterval {
-        return minutes * 60
-    }
-}
 
-struct StatusView: View {
-    
-    @State var referenceDate: Date = Date()
-    
-    var body: some View {
-        HStack {
-            SideView().padding()
-            Divider().padding()
-            IntervalView(referenceDate: referenceDate).padding()
-        }.padding()
-    }
-}
 
 struct ComplicationController_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             
-            CLKComplicationTemplateGraphicExtraLargeCircularView(StatusView()).previewContext()
+            CLKComplicationTemplateGraphicExtraLargeCircularView(ComplicationView()).previewContext()
             
-            CLKComplicationTemplateGraphicRectangularFullView(StatusView()).previewContext(faceColor: .red)
+            CLKComplicationTemplateGraphicRectangularFullView(ComplicationView()).previewContext(faceColor: .red)
             
-            CLKComplicationTemplateGraphicCornerCircularView(StatusView())
+            CLKComplicationTemplateGraphicCornerCircularView(ComplicationView())
                 .previewContext()
         }
     }

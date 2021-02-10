@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E71B3AF225D4599B00041837 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71B3AF125D4599B00041837 /* Time.swift */; };
+		E71B3AF725D459E300041837 /* Views.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71B3AF625D459E300041837 /* Views.swift */; };
 		E73A3C6125CA15F9001E41F9 /* Sides WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = E73A3C6025CA15F9001E41F9 /* Sides WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		E73A3C6625CA15FA001E41F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E73A3C6525CA15FA001E41F9 /* Assets.xcassets */; };
 		E73A3C6D25CA15FA001E41F9 /* Sides WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = E73A3C6C25CA15FA001E41F9 /* Sides WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		E73A3C7225CA15FA001E41F9 /* SidesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73A3C7125CA15FA001E41F9 /* SidesApp.swift */; };
 		E73A3C7425CA15FA001E41F9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73A3C7325CA15FA001E41F9 /* ContentView.swift */; };
-		E73A3C7625CA15FA001E41F9 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73A3C7525CA15FA001E41F9 /* NotificationController.swift */; };
-		E73A3C7825CA15FA001E41F9 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73A3C7725CA15FA001E41F9 /* NotificationView.swift */; };
 		E73A3C7A25CA15FA001E41F9 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73A3C7925CA15FA001E41F9 /* ComplicationController.swift */; };
 		E73A3C7C25CA15FB001E41F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E73A3C7B25CA15FB001E41F9 /* Assets.xcassets */; };
 		E73A3C7F25CA15FB001E41F9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E73A3C7E25CA15FB001E41F9 /* Preview Assets.xcassets */; };
@@ -62,6 +62,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E71B3AF125D4599B00041837 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
+		E71B3AF625D459E300041837 /* Views.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views.swift; sourceTree = "<group>"; };
 		E73000F025CDF11300CF4A97 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E73A3C5C25CA15F9001E41F9 /* Sides.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sides.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E73A3C6025CA15F9001E41F9 /* Sides WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sides WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,13 +72,10 @@
 		E73A3C6C25CA15FA001E41F9 /* Sides WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Sides WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E73A3C7125CA15FA001E41F9 /* SidesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidesApp.swift; sourceTree = "<group>"; };
 		E73A3C7325CA15FA001E41F9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		E73A3C7525CA15FA001E41F9 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
-		E73A3C7725CA15FA001E41F9 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		E73A3C7925CA15FA001E41F9 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
 		E73A3C7B25CA15FB001E41F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E73A3C7E25CA15FB001E41F9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E73A3C8025CA15FB001E41F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E73A3C8125CA15FB001E41F9 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,14 +121,13 @@
 		E73A3C7025CA15FA001E41F9 /* Sides WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
-				E73A3C7125CA15FA001E41F9 /* SidesApp.swift */,
-				E73A3C7325CA15FA001E41F9 /* ContentView.swift */,
-				E73A3C7525CA15FA001E41F9 /* NotificationController.swift */,
-				E73A3C7725CA15FA001E41F9 /* NotificationView.swift */,
 				E73A3C7925CA15FA001E41F9 /* ComplicationController.swift */,
+				E73A3C7325CA15FA001E41F9 /* ContentView.swift */,
+				E73A3C7125CA15FA001E41F9 /* SidesApp.swift */,
+				E71B3AF125D4599B00041837 /* Time.swift */,
+				E71B3AF625D459E300041837 /* Views.swift */,
 				E73A3C7B25CA15FB001E41F9 /* Assets.xcassets */,
 				E73A3C8025CA15FB001E41F9 /* Info.plist */,
-				E73A3C8125CA15FB001E41F9 /* PushNotificationPayload.apns */,
 				E73A3C7D25CA15FB001E41F9 /* Preview Content */,
 			);
 			path = "Sides WatchKit Extension";
@@ -269,11 +267,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E73A3C7625CA15FA001E41F9 /* NotificationController.swift in Sources */,
+				E71B3AF225D4599B00041837 /* Time.swift in Sources */,
 				E73A3C7425CA15FA001E41F9 /* ContentView.swift in Sources */,
+				E71B3AF725D459E300041837 /* Views.swift in Sources */,
 				E73A3C7A25CA15FA001E41F9 /* ComplicationController.swift in Sources */,
 				E73A3C7225CA15FA001E41F9 /* SidesApp.swift in Sources */,
-				E73A3C7825CA15FA001E41F9 /* NotificationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
