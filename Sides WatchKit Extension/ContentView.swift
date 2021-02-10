@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ClockKit
 
 let formatter = ISO8601DateFormatter()
 
@@ -64,6 +65,10 @@ struct ContentView: View {
                 Button {
                     self.side = .left
                     self.time = formatter.string(from: Date())
+                    let complicationServer = CLKComplicationServer.sharedInstance()
+                    complicationServer.activeComplications?.forEach({ (complication) in
+                        complicationServer.reloadTimeline(for: complication)
+                    })
                 } label: {
                     Text("L").font(.largeTitle)
                         .padding()
@@ -71,6 +76,10 @@ struct ContentView: View {
                 Button {
                     self.side = .right
                     self.time = formatter.string(from: Date())
+                    let complicationServer = CLKComplicationServer.sharedInstance()
+                    complicationServer.activeComplications?.forEach({ (complication) in
+                        complicationServer.reloadTimeline(for: complication)
+                    })
                 } label: {
                     Text("R").font(.largeTitle)
                         .padding()

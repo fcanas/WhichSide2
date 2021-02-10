@@ -29,7 +29,8 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     
     func getTimelineEndDate(for complication: CLKComplication, withHandler handler: @escaping (Date?) -> Void) {
         // Call the handler with the last entry date you can currently provide or nil if you can't support future timelines
-        handler(nil)
+        
+        handler(Date(timeIntervalSinceNow: 4.hours))
     }
     
     func getPrivacyBehavior(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationPrivacyBehavior) -> Void) {
@@ -44,9 +45,19 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         handler(CLKComplicationTimelineEntry(date: Date(), complicationTemplate: CLKComplicationTemplateGraphicRectangularFullView(StatusView())))
     }
     
-//    func getTimelineEntries(for complication: CLKComplication, after date: Date, limit: Int, withHandler handler: @escaping ([CLKComplicationTimelineEntry]?) -> Void) {
-//        handler([CLKComplicationTimelineEntry(date: Date(), complicationTemplate: CLKComplicationTemplateGraphicRectangularFullView(StatusView()))])
-//    }
+    
+    
+    func getTimelineEntries(for complication: CLKComplication, after date: Date, limit: Int, withHandler handler: @escaping ([CLKComplicationTimelineEntry]?) -> Void) {
+        
+        let intoTheFuture = (1..<limit).map({ date.addingTimeInterval(TimeInterval($0).minutes) })
+        let entries = intoTheFuture.map( { date -> CLKComplicationTimelineEntry in
+                            CLKComplicationTimelineEntry(date: date, complicationTemplate: CLKComplicationTemplateGraphicRectangularFullView(StatusView(referenceDate: date)))
+            }
+        )
+        
+        handler(entries)
+        
+    }
 
     // MARK: - Sample Templates
     
@@ -59,12 +70,25 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
 
 }
 
+extension TimeInterval {
+    var minutes: TimeInterval {
+        return self * 60
+    }
+    
+    var hours: TimeInterval {
+        return minutes * 60
+    }
+}
+
 struct StatusView: View {
+    
+    @State var referenceDate: Date = Date()
+    
     var body: some View {
         HStack {
             SideView().padding()
             Divider().padding()
-            IntervalView().padding()
+            IntervalView(referenceDate: referenceDate).padding()
         }.padding()
     }
 }
